@@ -57,7 +57,8 @@
       background-image: url('home/images/ggs.jpg');
       background-size: cover;
       background-position: center;
-      padding: 150px 0;
+      padding: 22%;
+      height: 100%;
     }
 
     .hero_area h1 {
@@ -172,6 +173,33 @@
         width: 250px;
         padding: -100px
     }
+    nav ul li a.btn {
+    width: 100px;
+    text-align: center;
+    padding: 10px 0;
+    }
+
+    .btn-primary, .btn-success {
+    height: 40px;
+    line-height: 20px;
+    }
+    .common-btn {
+    width: 120px; /* Set fixed width */
+    height: 40px; /* Set fixed height */
+    line-height: 20px; /* Center text vertically */
+    text-align: center;
+    color: white; /* Set text color */
+    background-color: #008000; /* Set the same background color */
+    border: none; /* Remove border */
+    padding: 10px 0; /* Set equal vertical padding */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Ensure block display for proper dimensions */
+    transition: background-color 0.3s; /* Add hover effect */
+    }
+
+    .common-btn:hover {
+    background-color: #005700; /* Darken color on hover */
+    }
 
 
 
@@ -199,8 +227,8 @@
                           <li><span>Welcome, {{ Auth::user()->name }}!</span></li>
                           <li><x-app-layout></x-app-layout></li>
                       @else
-                          <li><a href="{{ route('login') }}" class="btn btn-primary">Log In</a></li>
-                          <li><a href="{{ route('register') }}" class="btn btn-success">Register</a></li>
+                        <li><a href="{{ route('login') }}" class="btn btn-primary common-btn">Log In</a></li>
+                        <li><a href="{{ route('register') }}" class="btn btn-success common-btn">Register</a></li>
                       @endauth
                   @endif
               </ul>
