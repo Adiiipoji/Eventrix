@@ -12,9 +12,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'Afacad Flux', sans-serif;
+      font-size:20px;
       background-color: #f9f9f9;
       color: #333;
     }
@@ -164,6 +168,10 @@
     .scroll-top-btn:hover {
         opacity: 1; /* Fully opaque on hover */
     }
+    .logo{
+        width: 250px;
+        padding: -100px
+    }
 
 
 
@@ -172,31 +180,35 @@
 <body>
 
   <!-- Header Section -->
-  <header class="header_section" id="home">
-    <div class="container">
+  <!-- Header Section -->
+<header class="header_section" id="home">
+  <div class="container">
       <nav class="navbar navbar-expand-lg">
-        <a href="index.html">
-          <img src="logo/logo1.png" alt="Eventrix Logo" />
-        </a>
-        <div class="collapse navbar-collapse">
-          <ul class="navbar-nav ms-auto">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#occasion">Event</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#book">Book</a></li>
-            @if (Route::has('login'))
-            @auth
-              <li><x-app-layout></x-app-layout></li>
-            @else
-              <li><a href="{{ route('login') }}" class="btn btn-primary">Log In</a></li>
-              <li><a href="{{ route('register') }}" class="btn btn-success">Register</a></li>
-            @endauth
-            @endif
-          </ul>
-        </div>
+          <a href="index.html">
+              <img src="logo/logo1T.png" alt="Eventrix Logo" class="logo"/>
+          </a>
+          <div class="collapse navbar-collapse">
+              <ul class="navbar-nav ms-auto">
+                  <li><a href="#home">Home</a></li>
+                  <li><a href="#occasion">Event</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#book">Book</a></li>
+                  @if (Route::has('login'))
+                      @auth
+                          <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                          <li><span>Welcome, {{ Auth::user()->name }}!</span></li>
+                          <li><x-app-layout></x-app-layout></li>
+                      @else
+                          <li><a href="{{ route('login') }}" class="btn btn-primary">Log In</a></li>
+                          <li><a href="{{ route('register') }}" class="btn btn-success">Register</a></li>
+                      @endauth
+                  @endif
+              </ul>
+          </div>
       </nav>
-    </div>
-  </header>
+  </div>
+</header>
+
 
   <!-- Hero Section -->
   <div class="hero_area">
